@@ -4,7 +4,7 @@ export function Citas() {
             {/* Encabezado  */}
             <div className="relative bg-blue-600 text-white">
                 <div className="absolute inset-0 bg-cover bg-center"
-                    Style="background-image: url('../assets/imagen_clinica.jpg');"></div>
+                    Style={"background-image: url('../assets/imagen_clinica.jpg')"}></div>
                 <div className="relative bg-opacity-75 bg-blue-600 p-6 text-center">
                     <h1 className="text-4xl font-bold">Clínica Salud Total</h1>
                     <p className="text-lg mt-2">Solicita tu cita en línea de manera rápida y sencilla</p>
