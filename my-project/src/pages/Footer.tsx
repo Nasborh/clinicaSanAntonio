@@ -3,6 +3,7 @@ import { Logo } from "../components/Logo";
 import { info } from "../Models/Servicios";
 import { SeccionesFooter } from "../components/SeccionesFooter";
 import { SeccionesFooterText } from "../components/SeccionesFooter";
+import { Separador } from "../components/separador";
 
 export function Footer(){
     return (
@@ -23,7 +24,7 @@ export function Footer(){
                 <SeccionesFooterText posicion={info[3]}/>
                 </div>
 
-                <hr className="my-6 border-gray-200 sm:mx-auto" />
+                <Separador/>
                 <div className="sm:flex sm:items-center sm:justify-between">
                     <span className="text-sm text-gray-500  sm:text-center">© 2025 Todos los derechos reservados.</span>
                     <div className="flex mt-4 space-x-6 sm:justify-center sm:mt-0">

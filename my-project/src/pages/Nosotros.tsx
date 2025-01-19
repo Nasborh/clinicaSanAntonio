@@ -1,7 +1,7 @@
-export function Nosotros(){
+export function Nosotros({ isOpen }){
     return (
-        <div>
-            <h1>Hola, soy nosotros</h1>
-        </div>
+        <section className={`flex flex-col ${isOpen ? 'mt-16' : 'mt-2'}`} >
+            <h1>Hola, soy Servicios</h1>
+        </section>
     )
 }

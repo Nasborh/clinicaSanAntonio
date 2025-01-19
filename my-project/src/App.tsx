@@ -12,16 +12,17 @@ import './App.css'
 
 function App() {
 
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <>
       <BrowserRouter>
-        <Header />
+        <Header isOpen={isOpen} setIsOpen={setIsOpen}/>
         <Routes>
-          <Route path='/' element={<Home />}/>
-          <Route path='/Servicios' element={<Servicios/>}/>
-          <Route path='/Citas' element={<Citas/>}/>
-          <Route path='/Nosotros' element={<Nosotros />}/>
-          <Route path='/Noticias' element={<Noticias />}/>
+          <Route path='/' element={<Home isOpen={isOpen} />}/>
+          <Route path='/Servicios'  element={<Servicios isOpen={isOpen} />}/>
+          <Route path='/Citas' element={<Citas isOpen={isOpen}/>}/>
+          <Route path='/Nosotros' element={<Nosotros isOpen={isOpen}/>}/>
+          <Route path='/Noticias' element={<Noticias isOpen={isOpen} />}/>
         </Routes>
         <Footer />
       </BrowserRouter>

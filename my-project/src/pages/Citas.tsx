@@ -1,5 +1,6 @@
-export function Citas() {
+export function Citas({ isOpen }) {
     return (
+        <section className={`flex flex-col ${isOpen ? 'mt-16' : 'mt-2'}`} >
         <div className="min-h-screen bg-gray-100">
             {/* Encabezado  */}
             <div className="relative bg-blue-600 text-white">
@@ -106,6 +107,7 @@ export function Citas() {
                 </div>
             </div>
         </div>
+        </section>
 
 
     )
