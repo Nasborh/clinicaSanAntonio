@@ -1,9 +1,7 @@
 import { ImagesCarrousel } from "../components/ImagesCarrousel";
-import { Separador } from "../components/separador";
 import { ButtonCarousel } from "../components/ImagesCarrousel";
 import { Targets } from "../components/Targets";
 import { Ubicación } from "../components/Ubicacion";
-import { info } from "../Models/Servicios";
 
 
 export function Home({ isOpen }) {
