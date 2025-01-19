@@ -5,37 +5,44 @@ export const info = [
             {
                 "Nombre": "Medicina General",
                 "Descripcion": "Medicina general para toda la familia",
-                "ruta": "/Medicina_General"
+                "ruta": "/Medicina_General",
+                "ImageId" : "1"
             },
             {
                 "Nombre": "Pediatría",
                 "Descripcion": "Especialidad en niños y adolescentes",
-                "ruta": "/Pediatria"
+                "ruta": "/Pediatria",
+                "ImageId" : "2"
             },
             {
                 "Nombre": "Ginecología",
-                "Descripcion": "Especialidad en mujeres",
-                "ruta": "/Ginecologia"
+                "Descripcion": "Especialidad en mujeres y embarazadas",
+                "ruta": "/Ginecologia",
+                "ImageId" : "3"
             },
             {
                 "Nombre": "Cardiología",
                 "Descripcion": "Estudio del corazón",
-                "ruta": "/Cardiologia"
+                "ruta": "/Cardiologia",
+                "ImageId" : "4"
             },
             {
                 "Nombre": "Diagnostico por imágenes",
                 "Descripcion": "Estudio de imágenes para diagnóstico",
-                "ruta": "/Diagnostico_por_imagenes"
+                "ruta": "/Diagnostico_por_imagenes",
+                "ImageId" : "5"
             },
             {
                 "Nombre": "Laboratorio Clínico",
                 "Descripcion": "Estudio de laboratorio para diagnóstico",
-                "ruta": "/Laboratorio_Clinico"
+                "ruta": "/Laboratorio_Clinico",
+                "ImageId" : "6"
             },
             {
                 "Nombre": "Terapia Físicas y Rehabilitación",
                 "Descripcion": "Terapia para recuperación de lesiones",
-                "ruta": "/Terapia_Fisica_y_Rehabilitacion"
+                "ruta": "/Terapia_Fisica_y_Rehabilitacion",
+                "ImageId" : "7"
             }
         ]
     },
@@ -58,7 +65,7 @@ export const info = [
     },
 
     {
-        "title": "Ubicación",
+        "title": "Direccion",
         "contenido": [
             {
                 "Descripcion": "Calle 1 # 2-3"
