@@ -68,7 +68,7 @@ export const info = [
         "title": "Direccion",
         "contenido": [
             {
-                "Descripcion": "Calle 1 # 2-3"
+                "Descripcion": "Avenida Cajigal, San Bernardino, Distrito Capital"
             }
         ]
     },
@@ -77,7 +77,7 @@ export const info = [
         "title": "Contacto",
         "contenido": [
             {
-                "Descripcion": "123456789",
+                "Descripcion": "(0212) 555-01-11",
                
             }
         ]

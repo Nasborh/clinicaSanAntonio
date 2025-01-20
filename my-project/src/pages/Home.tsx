@@ -43,7 +43,7 @@ export function Home({ isOpen }) {
 
             </article>
 
-            <article className="items-center justify-center w-full bg-sky-100">
+            <article className="items-center justify-center w-full bg-sky-50">
                 <h1 className="text-3xl font-bold text-center text-blue-900 my-7">Nuestros Servicios</h1>
                 <section className="flex flex-wrap grid gap-4 mx-4 my-5 md:grid-cols-3 lg:grid-cols-4 sm:grid-cols-2 justify-center">
 
