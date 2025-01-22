@@ -14,7 +14,7 @@ export function SeccionesFooter({posicion}: {posicion: Posicion}) {
             <ul className="mt-2">
                 {posicion.contenido.map((item, index) => (
                     <li key={index} className="mt-2">
-                        <Link to={item.ruta} className="text-sm text-gray-600 hover:text-sky-500">{item.Nombre}</Link>
+                        <Link to={item.ruta} className="text-gray-600 hover:text-sky-500 text-lg">{item.Nombre}</Link>
                     </li>
                 ))}
             </ul>
@@ -33,7 +33,7 @@ export function SeccionesFooterText({posicion}: {posicion: Posicion}) {
             <ul className="mt-2">
                 {posicion.contenido.map((item, index) => (
                     <li key={index} className="mt-2">
-                      <p  className="text-sm text-gray-600">{item.Descripcion}</p>
+                      <p  className="text-lg text-gray-600">{item.Descripcion}</p>
                     </li>
                 ))}
             </ul>

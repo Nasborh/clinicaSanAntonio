@@ -1,3 +1,5 @@
+import { Banner } from "../components/bannner"
+
 interface CitasProps {
     isOpen: boolean;
 }
@@ -5,6 +7,7 @@ interface CitasProps {
 export function Citas({ isOpen }: CitasProps) {
     return (
         <section className={`flex flex-col ${isOpen ? 'mt-16' : 'mt-0'}`} >
+            <Banner page={2} />
             <div className="min-h-screen bg-gray-100">
                 {/* Encabezado  */}
                 <div className="relative bg-sky-500 text-white">
@@ -58,7 +61,7 @@ export function Citas({ isOpen }: CitasProps) {
                                 </div>
                                 <div className="w-full">
                                     <label htmlFor="date" className="block text-sm font-semibold text-sky-500">Fecha de la cita</label>
-                                    <input type="date" required className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Select date">
+                                    <input type="date" required className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " placeholder="Select date">
                                     </input>
                                 </div>
                             </div>
@@ -122,7 +125,7 @@ export function Citas({ isOpen }: CitasProps) {
                                 </div>
                                 <div className="w-full">
                                     <label htmlFor="born" className="block text-sm font-semibold text-sky-500">Fecha de Nacimiento</label>
-                                    <input type="date" required name="date" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Select date">
+                                    <input type="date" required name="date" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " placeholder="Select date">
                                     </input>
                                 </div>
                             </div>

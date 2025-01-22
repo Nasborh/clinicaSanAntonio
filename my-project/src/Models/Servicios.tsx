@@ -65,7 +65,7 @@ export const info = [
     },
 
     {
-        "title": "Direccion",
+        "title": "Dirección",
         "contenido": [
             {
                 "Descripcion": "Avenida Cajigal, San Bernardino, Distrito Capital"
