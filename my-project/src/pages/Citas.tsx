@@ -1,10 +1,33 @@
+import { useState } from 'react'
 import { Banner } from "../components/bannner"
+import axios from "axios"; 
 
 interface CitasProps {
     isOpen: boolean;
 }
 
 export function Citas({ isOpen }: CitasProps) {
+    const [formData, setFormData] = useState({
+        specialty: '',
+        doctor: '',
+        date: ''
+    })
+
+
+    const handleSubmit = (event: { preventDefault: () => void; }) => {
+        event.preventDefault();
+        console.log(formData)
+        axios.post('/', formData)
+          .then(response => {
+            console.log(response.data);
+          })
+          .catch(error => {
+            console.error(error);
+          });
+      };
+    
+      // ... Resto del componente
+
     return (
         <section className={`flex flex-col ${isOpen ? 'mt-16' : 'mt-0'}`} >
             <Banner page={2} />
@@ -23,7 +46,7 @@ export function Citas({ isOpen }: CitasProps) {
                 <div className="container mx-auto py-12 px-4 lg:px-8">
                     <div className="max-w-3xl mx-auto bg-white shadow-lg rounded-lg p-8">
                         <h2 className="text-2xl font-semibold text-blue-900 mb-6">Formulario de Solicitud de Cita</h2>
-                        <form className="space-y-6">
+                        <form className="space-y-6" onSubmit={handleSubmit}>
                             {/* Especialidad  */}
                             <div className="flex items-center space-x-4">
                                 <div className="flex-shrink-0 self-center">
@@ -32,12 +55,13 @@ export function Citas({ isOpen }: CitasProps) {
                                 <div className="w-full">
                                     <label htmlFor="specialty" className="block text-sm font-semibold text-sky-500">Especialidad</label>
                                     <select id="specialty" name="specialty" required
-                                        className="mt-1 block w-full rounded-lg border-gray-300 shadow-sm p-2.5 focus:ring-blue-500 focus:border-blue-500">
+                                        className="mt-1 block w-full rounded-lg border-gray-300 shadow-sm p-2.5 focus:ring-blue-500 focus:border-blue-500"
+                                        onChange={(e) => setFormData({ ...formData, specialty: e.target.value })}>
                                         <option value="" disabled selected>Seleccionar especialidad</option>
-                                        <option>Cardiología</option>
-                                        <option>Dermatología</option>
-                                        <option>Pediatría</option>
-                                        <option>Oftalmología</option>
+                                        <option value={1}>Cardiología</option>
+                                        <option value={2}>Dermatología</option>
+                                        <option value={3}>Pediatría</option>
+                                        <option value={4}>Oftalmología</option>
                                     </select>
                                 </div>
                             </div>
@@ -48,9 +72,13 @@ export function Citas({ isOpen }: CitasProps) {
                                 </div>
                                 <div className="w-full">
                                     <label htmlFor="doctor" className="block text-sm font-semibold text-sky-500">Médico</label>
-                                    <select id="doctor" name="doctor" required
+                                    <select id="doctor" name="doctor" required onChange={(e) => setFormData({ ...formData, doctor: e.target.value })}
                                         className="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 p-2.5">
                                         <option value="" disabled selected>Seleccionar médico</option>
+                                        <option value={1}>Lindimar Escobar</option>
+                                        <option value={2}>Rodolfo Ramirez</option>
+                                        <option value={3}>Gianni Imperato</option>
+                                        <option value={4}>Maxiel Camacho</option>
                                     </select>
                                 </div>
                             </div>
@@ -61,7 +89,7 @@ export function Citas({ isOpen }: CitasProps) {
                                 </div>
                                 <div className="w-full">
                                     <label htmlFor="date" className="block text-sm font-semibold text-sky-500">Fecha de la cita</label>
-                                    <input type="date" required className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " placeholder="Select date">
+                                    <input type="date" value={formData.date} onChange={(e) => setFormData({ ...formData, date: e.target.value })} required className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " placeholder="Select date">
                                     </input>
                                 </div>
                             </div>
