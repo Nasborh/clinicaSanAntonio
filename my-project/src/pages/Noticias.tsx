@@ -1,7 +1,9 @@
-export function Noticias({ isOpen }){
+export function Noticias({ isOpen }) {
     return (
         <section className={`flex flex-col ${isOpen ? 'mt-16' : 'mt-2'}`} >
             <h1>Hola, soy Servicios</h1>
         </section>
     )
 }
+
+

@@ -1,6 +1,7 @@
 
 import { QueryResult } from "mysql2";
 import connection from "../../src/server/db/connection";
+import { Console } from "console";
 const express = require('express');
 const app = express()
 const cors = require('cors')
@@ -35,11 +36,18 @@ app.get("/medicos", async (_req: any, res: {
   }
 })
 
-app.post('/api', (req: { body: { specialty: any, doctor: any, date: any, schedule: any, name: any, last_name: any, gender: any, born: any, identity_numb: any, phone: any, email: any }; }, res: { json: (arg0: { mensaje: string; }) => void; }) => {
+app.post('/api', async (req: { body: { specialty: any, doctor: any, date: any, schedule: any, name: any, last_name: any, gender: any, born: any, identity_numb: any, phone: any, email: any }; }, res: { json: (arg0: { mensaje: string; }) => void; }) => {
 
   try {
-    const { specialty, doctor, date, schedule, name, last_name, gender, born, identity_numb, phone, email } = req.body;
-    console.log(specialty, doctor, date, schedule, name, last_name, gender, born, identity_numb, phone, email); // Imprime los datos en la consola del servidor
+    const { doctor, date, schedule, name, last_name, gender, born, identity_numb, phone, email } = req.body;
+
+    const [inserted] = await connection.execute(`Insert into citas (Nombre, Apellido, Sexo, Fecha_Nacimiento, Cedula, Telefono, Correo, Id_Medico, Fecha_Cita, Hora_Cita) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+      [name, last_name, gender, born, identity_numb, phone, email, doctor, date, "16:30:20"]
+    );
+
+    console.log(inserted);
+
+    //console.log(specialty, doctor, date, schedule, name, last_name, gender, born, identity_numb, phone, email); // Imprime los datos en la consola del servidor
     // Aquí puedes guardar los datos en una base de datos, enviar un email, etc.
     //res.json({ mensaje: "datos guardados correctamente"});
   } catch (err) {
