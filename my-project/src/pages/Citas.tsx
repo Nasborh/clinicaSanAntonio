@@ -46,8 +46,8 @@ export function Citas({ isOpen }: CitasProps) {
                     <div className="absolute inset-0 bg-cover bg-center"
                         Style={"background-image: url('../assets/imagen_clinica.jpg')"}></div>
                     <div className="relative bg-opacity-75 bg-sky-500 p-6 text-center">
-                        <h1 className="text-4xl font-bold">Clínica San Antonio</h1>
-                        <p className="text-lg mt-2">Solicita tu cita en línea de manera rápida y sencilla</p>
+                        <h1 className="text-4xl font-bold">Citas en línea</h1>
+                        <p className="text-lg mt-2">Reserva tu cita de manera fácil y rápida desde cualquier lugar</p>
                     </div>
                 </div>
 

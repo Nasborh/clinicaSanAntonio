@@ -7,12 +7,19 @@ import { Banner } from "../components/bannner"
 export function Servicios({ isOpen }) {
     return (
         <section className={`flex flex-col ${isOpen ? 'mt-16' : ''}`} >
-            <Banner page={0}/>
-            
+            <Banner page={0} />
+            <div className="relative bg-sky-500 text-white">
+                <div className="absolute inset-0 bg-cover bg-center"
+                    Style={"background-image: url('../assets/imagen_clinica.jpg')"}></div>
+                <div className="relative bg-opacity-75 bg-sky-500 p-6 text-center">
+                    <h1 className="text-4xl font-bold">Servicios</h1>
+                    <p className="text-lg mt-2">Descubre nuestra amplia gama de servicios para tu bienestar</p>
+                </div>
+            </div>
+
             <article className="items-center justify-center w-full bg-white justify-center flex flex-wrap grid grid-cols-1">
                 <aside className="items-center justify-center my-7">
-
-                    <h1 className="text-3xl font-bold text-center text-blue-900 my-7">Conoce nuestros Servicios</h1>
+                    
                     <div className="flex justify-center items-center my-4">
                         <img src={icon} className="flex text-center"></img>
                     </div>
@@ -38,7 +45,7 @@ export function Servicios({ isOpen }) {
 
                 </section>
             </article>
-            <Contactanos/>
+            <Contactanos />
         </section>
     )
 }
