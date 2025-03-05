@@ -1,7 +1,9 @@
 import imgservicios from '../assets/serviciospage.jpg'
 import imgNosotros from '../assets/nosotrospage.jpg'
 import imgCitas from '../assets/servicioscitas.jpg';
-const imagesBannerArray = [imgservicios, imgNosotros, imgCitas]
+import imageBlog from '../assets/secciondeblog.jpeg';
+
+const imagesBannerArray = [imgservicios, imgNosotros, imgCitas, imageBlog]
 
 
 export function Banner({page}:{page:number}){

@@ -2,7 +2,7 @@ import ImageExample from "../assets/clinica2.jpg"
 import ImageExample1 from "../assets/mision2.jpg"
 import ImageExample2 from "../assets/vision.jpg"
 import ImageExample3 from "../assets/medicos.jpg"
-import ImageExample4 from "../assets/serv2.jpg"
+import ImageExample4 from "../assets/quirurg.jpg"
 
 
 

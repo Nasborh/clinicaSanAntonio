@@ -7,20 +7,22 @@ export function Nosotros({ isOpen }) {
         <section className={`flex flex-col ${isOpen ? 'mt-16' : ''}`}>
             <Banner page={1} />
             <div className="mx-auto bg-sky-100">
-                <aside className="flex flex-row grid gap-4 my-8 md:grid-cols-1 lg:grid-cols-1 sm:grid-cols-1 justify-center">
-                    <div className="w-full text-center mx-auto">
-                        <h1 className="font-bold text-blue-900 text-7xl">CONÓCENOS</h1>
-                        
+
+                <div className="relative bg-sky-500 text-white">
+                    <div className="absolute inset-0 bg-cover bg-center"
+                        Style={"background-image: url('../assets/imagen_clinica.jpg')"}></div>
+                    <div className="relative bg-opacity-75 bg-sky-500 p-6 text-center">
+                        <h1 className="text-4xl font-bold">Sobre Nosotros</h1>
+                        <p className="text-lg mt-2">Cuidando de ti y tu familia con profesionalismo y calidez</p>
                     </div>
-                    
-                </aside>
+                </div>
 
                 <aside className="mx-auto bg-sky-100">
-                    <TargetsNosotros Pos={"1"} Ser={"0"}/>
-                    <TargetsNosotros Pos={"2"} Ser={"1"}/>
-                    <TargetsNosotros Pos={"1"} Ser={"2"}/>
-                    <TargetsNosotros Pos={"2"} Ser={"3"}/>
-                    <TargetsNosotros Pos={"1"} Ser={"4"}/>
+                    <TargetsNosotros Pos={"1"} Ser={"0"} />
+                    <TargetsNosotros Pos={"2"} Ser={"1"} />
+                    <TargetsNosotros Pos={"1"} Ser={"2"} />
+                    <TargetsNosotros Pos={"2"} Ser={"3"} />
+                    <TargetsNosotros Pos={"1"} Ser={"4"} />
                 </aside>
             </div>
         </section>
