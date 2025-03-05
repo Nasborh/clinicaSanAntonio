@@ -1,7 +1,6 @@
 
 import { QueryResult } from "mysql2";
 import connection from "../../src/server/db/connection";
-import { Console } from "console";
 const express = require('express');
 const app = express()
 const cors = require('cors')
@@ -14,23 +13,42 @@ const port = process.env.PORT || 3000
 app.use(cors(corsOptions))
 app.use(express.json())
 
-app.get("/medicos", async (_req: any, res: {
-  json(arg0: { error?: any; medicos?: QueryResult; }): unknown; render: (arg0: string, arg1: { medicos: QueryResult; }) => void;
+
+app.get("/medicos/:id", async (req: { params: { id: any; }; }, res: { json: (arg0: { error?: any; especialidad_medico?: any; }) => void; }) => {
+  try {
+    const [rows] = await connection.query(
+      `SELECT
+        especialidades.Id,
+        medicos.Nombre,
+        medicos.Apellido,
+        especialidades.Nombre as especialidad
+      from
+        medicos
+      inner join
+        especialidades
+      on 
+        especialidades.Id = medicos.Id_Especialidad
+      where 
+        especialidades.Id = ?`,
+      [req.params.id])
+    res.json({ especialidad_medico: rows })
+  } catch (err) {
+    console.log(err);
+  }
+})
+
+app.get("/especialidades", async (_req: any, res: {
+  json(arg0: { error?: any; especialidades?: any; }): unknown; render: (arg0: string, arg1: { especialidades: any; }) => void;
 }) => {
   try {
     const [rows] = await connection.execute(`
-          SELECT
-        medicos.Id,
-        medicos.Nombre,
-        medicos.Apellido,
-        especialidades.Nombre as especialidades
+    SELECT
+        especialidades.Id,
+        especialidades.Nombre
     FROM
-        medicos
-    inner join especialidades 
-    on
-    especialidades.Id = medicos.Id_Especialidad
+         especialidades 
           `)
-    res.json({ medicos: rows })
+    res.json({ especialidades: rows })
   } catch (err) {
     res.json({ error: err })
   }

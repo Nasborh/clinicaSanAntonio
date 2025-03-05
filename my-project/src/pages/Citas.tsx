@@ -1,12 +1,26 @@
 import { useState } from 'react'
 import { Banner } from "../components/bannner"
 import axios from "axios";
+import { get } from 'http';
 
 interface CitasProps {
     isOpen: boolean;
 }
 
 export function Citas({ isOpen }: CitasProps) {
+
+    // Obtener Especialidades
+    const [specialties, setSpecialties] = useState([]);
+    const getSpecialties = async () => {
+        try {
+            const response = await axios.get('http://localhost:3000/especialidades');
+            console.log(response);
+            setSpecialties(response.data.especialidades);
+        } catch (error) {
+            console.error(error);
+        }
+    };
+
     const [formData, setFormData] = useState({
         specialty: '',
         doctor: '',
@@ -21,6 +35,21 @@ export function Citas({ isOpen }: CitasProps) {
         email: ''
     })
 
+
+    //Elección de la especialidad del médicos
+    // Obtener Especialidad del Medicos
+    const [doctorSpecialty, setDoctorSpecialty] = useState([]);
+    if (formData.specialty !== '') {
+        // Obtenemos el id de la especialidad del médico seleccionado
+        axios.get(`http://localhost:3000/medicos/${formData.specialty}`)
+            .then(response => {
+                console.log(response);
+                setDoctorSpecialty(response.data.especialidad_medico);
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    }
 
     const handleSubmit = (event: { preventDefault: () => void; }) => {
         event.preventDefault();
@@ -65,12 +94,15 @@ export function Citas({ isOpen }: CitasProps) {
                                     <label htmlFor="specialty" className="block text-sm font-semibold text-sky-500">Especialidad</label>
                                     <select id="specialty" name="specialty" required
                                         className="mt-1 block w-full rounded-lg border-gray-300 shadow-sm p-2.5 focus:ring-blue-500 focus:border-blue-500"
-                                        onChange={(e) => setFormData({ ...formData, specialty: e.target.value })}>
+                                        onClick={getSpecialties} onChange={(e) => setFormData({ ...formData, specialty: e.target.value })}>
                                         <option value="" disabled selected>Seleccionar especialidad</option>
-                                        <option value={1}>Cardiología</option>
+                                        {specialties.map((specialty: any) => (
+                                            <option key={specialty["Id"]} value={specialty["Id"]}>{specialty["Nombre"]}</option>
+                                        ))}
+                                        {/* <option value={1}>Cardiología</option>
                                         <option value={2}>Dermatología</option>
                                         <option value={3}>Pediatría</option>
-                                        <option value={4}>Oftalmología</option>
+                                        <option value={4}>Oftalmología</option> */}
                                     </select>
                                 </div>
                             </div>
@@ -84,10 +116,13 @@ export function Citas({ isOpen }: CitasProps) {
                                     <select id="doctor" name="doctor" required onChange={(e) => setFormData({ ...formData, doctor: e.target.value })}
                                         className="mt-1 block w-full rounded-lg border-gray-300 shadow-sm focus:ring-blue-500 focus:border-blue-500 p-2.5">
                                         <option value="" disabled selected>Seleccionar médico</option>
-                                        <option value={1}>Lindimar Escobar</option>
+                                        {doctorSpecialty.map((doctor: any) => (
+                                            <option key={doctor["Id"]} value={doctor["Id"]}>{doctor["Nombre"]} {doctor["Apellido"]}</option>
+                                        ))}
+                                        {/* <option value={1}>Lindimar Escobar</option>
                                         <option value={2}>Rodolfo Ramirez</option>
                                         <option value={3}>Gianni Imperato</option>
-                                        <option value={4}>Maxiel Camacho</option>
+                                        <option value={4}>Maxiel Camacho</option> */}
                                     </select>
                                 </div>
                             </div>
