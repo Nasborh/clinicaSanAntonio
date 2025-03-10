@@ -10,7 +10,7 @@ export function Banner({page}:{page:number}){
     const imageBanner = imagesBannerArray[page];
     
     return(
-        <article className="items-center justify-center w-full h-64 " >
+        <article className="items-center justify-center w-full h-auto " >
                 <aside className="items-center justify-center">
                         <img src={imageBanner} className="w-full"></img>
                 
